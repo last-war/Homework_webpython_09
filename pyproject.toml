@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "homework-webpython-09"
+version = "0.1.0"
+description = ""
+authors = ["Андрій <andrey.maybrodskyy@gmail.com>"]
+readme = "README.md"
+packages = [{include = "homework_webpython_09"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
