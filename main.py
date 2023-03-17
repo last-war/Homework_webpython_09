@@ -1,5 +1,5 @@
 import json
-import datetime
+from datetime import datetime
 from models import Author, Quotes
 import scrapy
 from scrapy.crawler import CrawlerProcess
@@ -29,9 +29,9 @@ class Q_Pipline:
         if 'fullname' in adapter.keys():
             self.authors.append({
                 "fullname": adapter["fullname"],
-                "date_born": adapter["date_born"],
-                "location_born": adapter["location_born"],
-                "description": adapter["bio"],
+                "born_date": adapter["date_born"],
+                "born_location": adapter["location_born"],
+                "description": adapter["description"],
             })
         if 'quote' in adapter.keys():
             self.quotes.append({
@@ -73,7 +73,7 @@ class AuthorsSpider(scrapy.Spider):
         date_born = author.xpath('p/span[@class="author-born-date"]/text()').get().strip()
         location_born = author.xpath('p/span[@class="author-born-location"]/text()').get().strip()
         bio = author.xpath('div[@class="author-description"]/text()').get().strip()
-        yield AuthorItem(fullname=fullname, date_born=date_born, location_born=location_born, bio=bio)
+        yield AuthorItem(fullname=fullname, date_born=date_born, location_born=location_born, description=bio)
 
 
 def load_json():
