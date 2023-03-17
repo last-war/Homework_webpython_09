@@ -1,4 +1,5 @@
 import json
+from connector import connect
 from datetime import datetime
 from models import Author, Quotes
 import scrapy
@@ -35,7 +36,7 @@ class Q_Pipline:
             })
         if 'quote' in adapter.keys():
             self.quotes.append({
-                "keywords": adapter["keywords"],
+                "tags": adapter["keywords"],
                 "author": adapter["author"],
                 "quote": adapter["quote"],
             })
