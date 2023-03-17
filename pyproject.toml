@@ -10,6 +10,7 @@ packages = [{include = "homework_webpython_09"}]
 python = "^3.10"
 scrapy = "^2.8.0"
 mongoengine = "^0.27.0"
+itemadapter = "^0.7.0"
 
 
 [build-system]
